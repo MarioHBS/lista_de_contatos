@@ -1,7 +1,7 @@
 {
   "name": "curso_ebac-atv_mod32_react-redux_contatos",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -26,7 +26,6 @@
     "eslint-plugin-react": "^7.34.1",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",
-    "globals": "^15.0.0",
     "typescript": "^5.2.2",
     "typescript-eslint": "^7.7.1",
     "vite": "^5.2.0"
