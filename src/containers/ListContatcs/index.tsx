@@ -1,6 +1,6 @@
 import ContactComponent from '../../components/Contact'
 import { MainContainer } from '../../global_style'
-import InnerContainer from './list.style'
+import Inner from './list.style'
 
 const listaContatos = [
   {
@@ -34,11 +34,11 @@ const ListContacts = () => {
   return (
     <MainContainer>
       <h2>Título com algum retorno</h2>
-      <InnerContainer>
+      <Inner.Grid>
         {listaContatos.map((item) => (
           <ContactComponent key={item.nome}>{item}</ContactComponent>
         ))}
-      </InnerContainer>
+      </Inner.Grid>
     </MainContainer>
   )
 }

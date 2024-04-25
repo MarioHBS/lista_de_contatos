@@ -1,9 +1,8 @@
 import styled from 'styled-components'
 
-export default styled.div`
+const Grid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  // column-gap: 8px;
   gap: 8px 16px;
   padding: 5px;
 
@@ -14,3 +13,7 @@ export default styled.div`
     grid-template-columns: 1fr;
   }
 `
+
+const Stack = styled.div``
+
+export default { Grid, Stack }
