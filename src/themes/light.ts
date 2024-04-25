@@ -6,6 +6,7 @@ const lightTheme = {
   darkBlue: '#4476bf',
   blueEmphasis: '#1e90ff',
   backgroundElement: '#fcfcfc',
+  backgroundEditing: '#C93316',
   backgroundSecondary: '#eee',
 }
 
