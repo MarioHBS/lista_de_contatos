@@ -5,6 +5,8 @@ const lightTheme = {
   verdeHover: '#00cf83',
   darkBlue: '#4476bf',
   blueEmphasis: '#1e90ff',
+  backgroundElement: '#fcfcfc',
+  backgroundSecondary: '#eee',
 }
 
 export default lightTheme
