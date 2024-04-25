@@ -1,11 +1,17 @@
 {
-  "editor.formatOnSave": false,
+  "editor.formatOnSave": true,
   "editor.fontLigatures": true,
   "editor.minimap.maxColumn": 100,
+  "eslint.validate": [
+    "typescript"
+  ],
   "[javascript]": {
     "editor.formatOnSave": true,
     "editor.maxTokenizationLineLength": 2500,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.formatOnSave": false
   },
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
