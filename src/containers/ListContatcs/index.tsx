@@ -1,0 +1,1 @@
+const ListContacts = () => <div></div>

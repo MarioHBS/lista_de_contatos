@@ -1,0 +1,1 @@
+const RegisterForm = () => <form></form>
