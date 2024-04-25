@@ -1,7 +1,13 @@
+import GlobalStyle, { GlobalContainer } from './global_style'
+import HomePage from './pages/HomePage'
+
 const App = () => {
   return (
     <>
-      <h1>Olá</h1>
+      <GlobalStyle />
+      <GlobalContainer>
+        <HomePage />
+      </GlobalContainer>
     </>
   )
 }
