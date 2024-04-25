@@ -1,3 +1,4 @@
+import ContactComponent from '../../components/Contact'
 import { MainContainer } from '../../global_style'
 import InnerContainer from './list.style'
 
@@ -35,7 +36,7 @@ const ListContacts = () => {
       <h2>Título com algum retorno</h2>
       <InnerContainer>
         {listaContatos.map((item) => (
-          <h1 key={item.nome}>{item.nome}</h1>
+          <ContactComponent key={item.nome}>{item}</ContactComponent>
         ))}
       </InnerContainer>
     </MainContainer>
