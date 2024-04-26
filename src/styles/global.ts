@@ -45,3 +45,10 @@ export const Button = styled.button`
   border-radius: 8px;
   // margin-right: 8px;
 `
+
+export const ButtonSave = styled(Button)`
+  background-color: ${({ theme }) => theme.lightGreen};
+  &:hover {
+    background-color: ${({ theme }) => theme.greenHover};
+  }
+`
