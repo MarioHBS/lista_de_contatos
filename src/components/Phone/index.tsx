@@ -1,5 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { ChangeEvent, useEffect, useState } from 'react'
+import styled from 'styled-components'
+import { Entry } from '../../styles/global'
 
 type PhoneType = {
   value: string
@@ -12,6 +14,11 @@ const PhoneInput = ({ value, onChange }: PhoneType) => {
   useEffect(() => {
     setPhone(format(value))
   }, [value])
+
+  const InputPhone = styled(Entry)`
+    font-size: 14px;
+    text-transform: none;
+  `
 
   const clean = (boilerplate: string) => boilerplate.replace(/\D/g, '') // Remove todos os caracteres não numéricos
 
@@ -46,7 +53,7 @@ const PhoneInput = ({ value, onChange }: PhoneType) => {
   }
 
   return (
-    <input
+    <InputPhone
       style={{ fontSize: '14px' }}
       type="tel"
       value={phone}
