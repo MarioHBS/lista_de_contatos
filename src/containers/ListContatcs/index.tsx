@@ -1,5 +1,6 @@
-import ContactComponent from '../../components/Contact'
-import { MainContainer } from '../../global_style'
+import { useState } from 'react'
+import { ContactComponent, FavComponent } from '../../components/Contact'
+import { MainContainer } from '../../styles/global'
 import Inner from './list.style'
 
 const listaContatos = [
@@ -31,14 +32,25 @@ const listaContatos = [
 ]
 
 const ListContacts = () => {
+  const [favMode] = useState(false)
+
   return (
     <MainContainer>
       <h2>Título com algum retorno</h2>
-      <Inner.Grid>
-        {listaContatos.map((item) => (
-          <ContactComponent key={item.nome}>{item}</ContactComponent>
-        ))}
-      </Inner.Grid>
+
+      {favMode ? (
+        <Inner.Grid>
+          {listaContatos.map((item) =>
+            <FavComponent key={item.nome}>{item}</FavComponent>
+          )}
+        </Inner.Grid>
+      ) : (
+        <Inner.Stack>
+          {listaContatos.map((item) =>
+            <ContactComponent key={item.nome}>{item}</ContactComponent>
+          )}
+        </Inner.Stack>
+      )}
     </MainContainer>
   )
 }

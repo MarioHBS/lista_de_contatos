@@ -5,6 +5,7 @@ const Grid = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
   gap: 8px 16px;
   padding: 5px;
+  margin-top: 16px;
 
   @media (max-width: 1024px) {
     grid-template-columns: 1fr 1fr;
@@ -14,6 +15,10 @@ const Grid = styled.div`
   }
 `
 
-const Stack = styled.div``
+const Stack = styled.div`
+  display: block;
+  padding: 5px;
+  margin-top: 16px;
+`
 
 export default { Grid, Stack }
