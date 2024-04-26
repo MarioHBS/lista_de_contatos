@@ -1,4 +1,5 @@
 import styled, { DefaultTheme } from 'styled-components'
+import { Button, Entry } from '../../styles/global'
 
 type CardProp = {
   edit_status: string
@@ -10,7 +11,7 @@ function hasBorder({ edit_status: editStatus, theme }: CardProp) {
   else return 'none'
 }
 
-export const Card = styled.div<CardProp>`
+export const CardFav = styled.div<CardProp>`
   background-color: ${({ theme }) => theme.backgroundElement};
   box-shadow: 1px 2px 5px 2px rgba(0, 0, 0, 0.25);
   padding: 16px;
@@ -32,18 +33,33 @@ export const Card = styled.div<CardProp>`
   }
 `
 
-export const Field = styled.h3``
-export const Entry = styled.input`
-  font-size: 18px;
-  border: none;
-  outline: none;
-  border-bottom: 1px solid #bbb;
-  text-transform: capitalize;
+export const Card = styled(CardFav)`
+  display: grid;
+  align-items: center;
+  grid-template-columns: auto 20%;
+
+  h3 {
+    // margin-right: 16px;
+    width: 230px;
+  }
+
+  h4 {
+    width: 200px;
+  }
+
+  div:nth-child(1) {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
 `
 
 export const Entry2 = styled(Entry)`
   font-size: 14px;
+  text-transform: none;
 `
+
+export const Field = styled.h3``
 
 export const ActionArea = styled.div`
   border-top: 1px solid rgba(0, 0, 0, 0.1);
@@ -52,4 +68,16 @@ export const ActionArea = styled.div`
   button:nth-child(1) {
     margin-right: 8px;
   }
+`
+
+export const ActionAreaHz = styled.div`
+  display: flex;
+  margin-left: 5px;
+  // padding: 5px;
+  justify-content: space-around;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+`
+
+export const ButtonCancel = styled(Button)`
+  background-color: ${({ theme }) => theme.redAlert};
 `
