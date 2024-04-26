@@ -79,5 +79,6 @@ export const ActionAreaHz = styled.div`
 `
 
 export const ButtonCancel = styled(Button)`
+  type: 'button';
   background-color: ${({ theme }) => theme.redAlert};
 `

@@ -1,6 +1,6 @@
 import { ChangeEvent, useState } from 'react'
 
-import { Button, Entry } from '../../styles/global'
+import { Button, ButtonSave, Entry } from '../../styles/global'
 import PhoneInput from '../Phone'
 import * as Ctt from './contact.style'
 
@@ -15,6 +15,24 @@ type ContactProp = {
 }
 
 type ChangeType = ChangeEvent<HTMLInputElement>
+type ButtonEvtType = React.Dispatch<React.SetStateAction<boolean>>
+
+const ButtonArea = (edit: boolean, set: ButtonEvtType) =>
+  edit ? (
+    <>
+      <ButtonSave type="button" onClick={() => set(!edit)}>
+        Salvar
+      </ButtonSave>
+      <Ctt.ButtonCancel>Cancelar</Ctt.ButtonCancel>
+    </>
+  ) : (
+    <>
+      <Button type="button" onClick={() => set(!edit)}>
+        Editar
+      </Button>
+      <Ctt.ButtonCancel>Remover</Ctt.ButtonCancel>
+    </>
+  )
 
 export const FavComponent = ({ children: aluno }: ContactProp) => {
   const [isEditing, setEdition] = useState(false)
@@ -42,10 +60,7 @@ export const FavComponent = ({ children: aluno }: ContactProp) => {
       </div>
 
       <Ctt.ActionArea>
-        <Button type="button" onClick={() => setEdition(!isEditing)}>
-          Editar
-        </Button>
-        <button type="button">Cancelar</button>
+        {ButtonArea(isEditing, setEdition)}
       </Ctt.ActionArea>
     </Ctt.CardFav>
   )
@@ -76,10 +91,7 @@ export const ContactComponent = ({ children: aluno }: ContactProp) => {
         }
       </div>
       <Ctt.ActionAreaHz>
-        <Button type="button" onClick={() => setEdition(!isEditing)}>
-          Editar
-        </Button>
-        <Ctt.ButtonCancel type="button">Cancelar</Ctt.ButtonCancel>
+        {ButtonArea(isEditing, setEdition)}
       </Ctt.ActionAreaHz>
     </Ctt.Card>
   )
