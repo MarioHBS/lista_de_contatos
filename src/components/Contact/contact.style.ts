@@ -1,12 +1,12 @@
 import styled, { DefaultTheme } from 'styled-components'
 
 type CardProp = {
-  edit_status: boolean
+  edit_status: string
   theme: DefaultTheme
 }
 
 function hasBorder({ edit_status: editStatus, theme }: CardProp) {
-  if (editStatus) return `2px solid ${theme.backgroundEditing}`
+  if (editStatus === 'true') return `2px solid ${theme.backgroundEditing}`
   else return 'none'
 }
 

@@ -8,15 +8,15 @@ type ContactObj = {
 }
 
 type ContactProp = {
-  children: object
+  children: ContactObj
 }
 
 const ContactComponent = (props: ContactProp) => {
-  const aluno = props.children as ContactObj
+  const aluno = props.children
   const [isEditing, setEdition] = useState(false)
 
   return (
-    <Ctt.Card edit_status={isEditing}>
+    <Ctt.Card edit_status={isEditing.toString()}>
       {!isEditing ? <h3>{aluno.nome}</h3> : <Ctt.Entry type='text' value={aluno.nome} />}
 
       <div style={{ margin: '16px 0' }}>
