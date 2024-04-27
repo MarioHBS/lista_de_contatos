@@ -4,7 +4,10 @@ const lightTheme = {
   lightGreen: '#00a86b',
   greenHover: '#00cf83',
   darkBlue: '#4476bf',
-  blueEmphasis: '#1e90ff',
+  //for filters:
+  activeCard: '#1e90ff',
+  unactiveCard: '#a1a1a1',
+  unactiveText: '#5e5e5e',
   backgroundElement: '#fcfcfc',
   backgroundEditing: '#C93316',
   backgroundSecondary: '#eee',
