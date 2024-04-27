@@ -5,11 +5,12 @@ type FilterProps = {
   criterion: string
 }
 
-const FilterCard = ({ type }: FilterProps) => {
+const FilterCard = ({ criterion, type }: FilterProps) => {
   return (
     <>
-      <StyledCard active>
-        <h2>{type}</h2>
+      <StyledCard active={false}>
+        <span>0</span>
+        <span>{criterion}</span>
       </StyledCard>
     </>
   )
