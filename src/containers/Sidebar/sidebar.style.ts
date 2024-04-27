@@ -6,7 +6,7 @@ export const Aside = styled.aside`
   padding: 8px;
 `
 
-export const Campo = styled.input`
+export const Querier = styled.input`
   width: 100%;
   padding: 8px;
   background-color: #fff;
@@ -16,9 +16,13 @@ export const Campo = styled.input`
   border-color: #666666;
 `
 
-export const Filtros = styled.div`
+export const FilterContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 8px;
   padding-top: 16px;
+
+  div:nth-child(5) {
+    grid-column: 1 / span 2;
+  }
 `
