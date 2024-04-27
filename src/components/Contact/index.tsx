@@ -1,17 +1,13 @@
 import { ChangeEvent, useState } from 'react'
 
+import ContactModel from '../../models/Contact'
 import { Button, ButtonSave, Entry } from '../../styles/global'
 import PhoneInput from '../Phone'
 import * as Ctt from './contact.style'
-
-type ContactObj = {
-  nome: string
-  email: string
-  telefone: string
-}
+import { formatNumber } from '../../utils/tools'
 
 type ContactProp = {
-  children: ContactObj
+  children: ContactModel
 }
 
 type ChangeType = ChangeEvent<HTMLInputElement>
@@ -36,9 +32,9 @@ const ButtonArea = (edit: boolean, set: ButtonEvtType) =>
 
 export const FavComponent = ({ children: aluno }: ContactProp) => {
   const [isEditing, setEdition] = useState(false)
-  const [name, setName] = useState(aluno.nome)
+  const [name, setName] = useState(aluno.name)
   const [email, setEmail] = useState(aluno.email)
-  const [tel, setTel] = useState(aluno.telefone)
+  const [tel, setTel] = useState(aluno.phone)
 
   const editEmail = ({ target }: ChangeType) => setEmail(target.value)
   const editName = ({ target }: ChangeType) => setName(target.value)
@@ -68,9 +64,9 @@ export const FavComponent = ({ children: aluno }: ContactProp) => {
 
 export const ContactComponent = ({ children: aluno }: ContactProp) => {
   const [isEditing, setEdition] = useState(false)
-  const [name, setName] = useState(aluno.nome)
+  const [name, setName] = useState(aluno.name)
   const [email, setEmail] = useState(aluno.email)
-  const [tel, setTel] = useState(aluno.telefone)
+  const [tel, setTel] = useState(aluno.phone)
 
   const editEmail = ({ target }: ChangeType) => setEmail(target.value)
   const editName = ({ target }: ChangeType) => setName(target.value)
@@ -86,7 +82,7 @@ export const ContactComponent = ({ children: aluno }: ContactProp) => {
           : <Ctt.Entry2 type='email' value={email} onChange={editEmail}/>
         }
         {!isEditing
-          ? <h4>{tel}</h4>
+          ? <h4>{formatNumber(tel)}</h4>
           : <PhoneInput value={tel} onChange={editTel} />
         }
       </div>

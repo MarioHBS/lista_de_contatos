@@ -1,38 +1,20 @@
 import { useState } from 'react'
+import { useSelector } from 'react-redux'
+
 import { ContactComponent, FavComponent } from '../../components/Contact'
+import { RootReducer } from '../../redux/store'
 import { MainContainer } from '../../styles/global'
 import Inner from './list.style'
 
-const listaContatos = [
-  {
-    nome: 'Mário Henrique',
-    email: 'marioh90@gmail.com',
-    telefone: '(98) 985349760',
-  },
-  {
-    nome: 'Adriana Marão',
-    email: 'adriana@gmail.com',
-    telefone: '(21) 912345678',
-  },
-  {
-    nome: 'Roberto de Sousa',
-    email: 'rober.to@email.com',
-    telefone: '(99) 73914682',
-  },
-  {
-    nome: 'Xirlene Maria Cavalcante',
-    email: 'xirlene_maca@yahoo.com.br',
-    telefone: '(11) 988667799',
-  },
-  {
-    nome: 'Fabrabrício da Nóbrega',
-    email: 'fab_nobre@outlook.com.br',
-    telefone: '(99) 11111111',
-  },
-]
-
 const ListContacts = () => {
   const [favMode] = useState(false)
+  const { list: listaContatos } = useSelector((root: RootReducer) => root.contact)
+
+  const filtering = () => {
+    let filtered = listaContatos
+
+    return filtered
+  }
 
   return (
     <MainContainer>
@@ -40,14 +22,14 @@ const ListContacts = () => {
 
       {favMode ? (
         <Inner.Grid>
-          {listaContatos.map((item) =>
-            <FavComponent key={item.nome}>{item}</FavComponent>
+          {filtering().map((item) =>
+            <FavComponent key={item.name}>{item}</FavComponent>
           )}
         </Inner.Grid>
       ) : (
         <Inner.Stack>
-          {listaContatos.map((item) =>
-            <ContactComponent key={item.nome}>{item}</ContactComponent>
+          {filtering().map((item) =>
+            <ContactComponent key={item.name}>{item}</ContactComponent>
           )}
         </Inner.Stack>
       )}
