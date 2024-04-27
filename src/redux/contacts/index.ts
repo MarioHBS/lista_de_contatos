@@ -10,33 +10,33 @@ const initialState: InitType = {
   list: [
     {
       id: 1,
-      name: 'Mário Henrique',
-      email: 'marioh90@gmail.com',
-      phone: '(98) 985349760',
+      name: 'Adriana Marão',
+      email: 'adriana@gmail.com',
+      phone: '21912345678',
     },
     {
       id: 2,
-      name: 'Adriana Marão',
-      email: 'adriana@gmail.com',
-      phone: '(21) 912345678',
+      name: 'Fabrício da Nóbrega',
+      email: 'fab_nobre@outlook.com.br',
+      phone: '9911111111',
     },
     {
       id: 3,
-      name: 'Roberto de Sousa',
-      email: 'rober.to@email.com',
-      phone: '(99) 73914682',
+      name: 'Mário Henrique',
+      email: 'marioh90@gmail.com',
+      phone: '98985349760',
     },
     {
       id: 4,
-      name: 'Xirlene Maria Cavalcante',
-      email: 'xirlene_maca@yahoo.com.br',
-      phone: '(11) 988667799',
+      name: 'Roberto de Sousa',
+      email: 'rober.to@email.com',
+      phone: '9973914682',
     },
     {
       id: 5,
-      name: 'Fabrabrício da Nóbrega',
-      email: 'fab_nobre@outlook.com.br',
-      phone: '(99) 11111111',
+      name: 'Xirlene Maria Cavalcante',
+      email: 'xirlene_maca@yahoo.com.br',
+      phone: '11988667799',
     },
   ],
 }
@@ -69,6 +69,7 @@ const ContactSlice = createSlice({
           id: lastItem ? lastItem.id + 1 : 1,
         }
         state.list = [...state.list, newContact]
+        state.list = state.list.sort((a, b) => a.name.localeCompare(b.name))
       }
     },
     // setFavorite: (state, action) => {}
