@@ -1,6 +1,8 @@
 {
   "editor.formatOnSave": true,
-  "editor.fontLigatures": true,
+  "editor.fontSize": 13,
+  // "editor.fontLigatures": true,
+  "editor.fontLigatures": "'cv02', 'cv09', 'cv12', 'cv14', 'ss04', 'onum'",
   "editor.minimap.maxColumn": 100,
   "eslint.validate": [
     "typescript"
