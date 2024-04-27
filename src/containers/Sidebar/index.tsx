@@ -1,10 +1,13 @@
-import { Aside } from './sidebar.style'
+import { useDispatch } from 'react-redux'
+import * as SB from './sidebar.style'
 
 const SideBar = () => {
+  const dsp = useDispatch()
+
   return (
-    <Aside>
-      <h2>Barra Lateral</h2>
-    </Aside>
+    <SB.Aside>
+      <SB.Campo type='text' placeholder='Buscar'/>
+    </SB.Aside>
   )
 }
 
