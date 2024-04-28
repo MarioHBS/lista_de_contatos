@@ -8,11 +8,27 @@ import Inner from './list.style'
 
 const ListContacts = () => {
   const [favMode] = useState(false)
-  const { list: listaContatos } = useSelector((root: RootReducer) => root.contact)
+  const { list: listaContatos } = useSelector(
+    (root: RootReducer) => root.contact,
+  )
+  const { type, query, value } = useSelector(
+    (root: RootReducer) => root.filters,
+  )
 
   const filtering = () => {
     let filtered = listaContatos
+    if (query != undefined) {
+      filtered = filtered.filter(
+        (item) =>
+          item.name.toLowerCase().search(query.toLocaleLowerCase()) >= 0,
+      )
 
+      if(type === 'category') {
+        filtered = filtered.filter(item => item.category === value)
+      } else if(type === 'fav') {
+        filtered = filtered.filter(item => item.fav)
+      }
+    }
     return filtered
   }
 
@@ -22,15 +38,15 @@ const ListContacts = () => {
 
       {favMode ? (
         <Inner.Grid>
-          {filtering().map((item) =>
+          {filtering().map((item) => (
             <FavComponent key={item.name}>{item}</FavComponent>
-          )}
+          ))}
         </Inner.Grid>
       ) : (
         <Inner.Stack>
-          {filtering().map((item) =>
+          {filtering().map((item) => (
             <ContactComponent key={item.name}>{item}</ContactComponent>
-          )}
+          ))}
         </Inner.Stack>
       )}
     </MainContainer>
