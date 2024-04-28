@@ -1,16 +1,16 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
-import { CategoryType } from '../../utils/enums'
+import { CategoryType } from '../../utils/types'
 
 type FilterState = {
   query?: string
-  criteria: 'category' | 'fav' | 'all'
+  type: 'category' | 'fav' | 'all'
   value?: CategoryType
   fav?: boolean
 }
 
 const initialState: FilterState = {
   query: '',
-  criteria: 'all',
+  type: 'all',
 }
 
 const filterSlice = createSlice({
@@ -20,12 +20,14 @@ const filterSlice = createSlice({
     setQuery: (state, action: PayloadAction<string>) => {
       state.query = action.payload
     },
-    setCriterion: (state, action: PayloadAction<FilterState>) => {
-      state.criteria = action.payload.criteria
-      state.value = action.payload.value
+    setType: (state, action: PayloadAction<FilterState>) => {
+      state.type = action.payload.type
+      action.payload.type === 'fav'
+        ? (state.fav = action.payload.fav)
+        : (state.value = action.payload.value)
     },
   },
 })
 
-export const { setCriterion, setQuery } = filterSlice.actions
+export const { setType, setQuery } = filterSlice.actions
 export default filterSlice.reducer
