@@ -1,6 +1,7 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 
 import ContactModel from '../../models/Contact'
+import { CategoryType } from '../../utils/types'
 
 type InitType = {
   list: ContactModel[]
@@ -13,30 +14,40 @@ const initialState: InitType = {
       name: 'Adriana Marão',
       email: 'adriana@gmail.com',
       phone: '21912345678',
+      category: CategoryType.COMMON,
+      fav: false,
     },
     {
       id: 2,
       name: 'Fabrício da Nóbrega',
       email: 'fab_nobre@outlook.com.br',
       phone: '9911111111',
+      category: CategoryType.FAMILY,
+      fav: true,
     },
     {
       id: 3,
       name: 'Mário Henrique',
       email: 'marioh90@gmail.com',
       phone: '98985349760',
+      category: CategoryType.WORK,
+      fav: false,
     },
     {
       id: 4,
       name: 'Roberto de Sousa',
       email: 'rober.to@email.com',
       phone: '9973914682',
+      category: CategoryType.FAMILY,
+      fav: false,
     },
     {
       id: 5,
       name: 'Xirlene Maria Cavalcante',
       email: 'xirlene_maca@yahoo.com.br',
       phone: '11988667799',
+      category: CategoryType.COMMON,
+      fav: true,
     },
   ],
 }
