@@ -1,14 +1,23 @@
-// import { useDispatch } from 'react-redux'
-import * as SB from './sidebar.style'
+import { useDispatch, useSelector } from 'react-redux'
+
 import FilterCard from '../../components/FilterCard'
-import { CategoryType } from '../../utils/types'
+import { setQuery } from '../../redux/filters/reducer'
+import { RootReducer } from '../../redux/store'
+import { CategoryType, ChangeType } from '../../utils/types'
+import * as SB from './sidebar.style'
 
 const SideBar = () => {
-  // const dsp = useDispatch()
+  const dsp = useDispatch()
+  const { query } = useSelector(({filters }: RootReducer) => filters)
+
+  const change = ({ target }: ChangeType) => {
+    const value = target.value
+    dsp(setQuery(value))
+  }
 
   return (
     <SB.Aside>
-      <SB.Querier type='text' placeholder='Buscar'/>
+      <SB.Querier type='text' placeholder='Buscar' value={query} onChange={change} />
       {/* Área dos filtros */}
       <SB.FilterContainer>
         <FilterCard type='category' criterion='família' value={CategoryType.FAMILY} />
