@@ -1,16 +1,16 @@
-import { ChangeEvent, useState } from 'react'
+import { useState } from 'react'
 
 import ContactModel from '../../models/Contact'
 import { Button, ButtonSave, Entry } from '../../styles/global'
+import { formatNumber } from '../../utils/tools'
+import { ChangeType } from '../../utils/types'
 import PhoneInput from '../Phone'
 import * as Ctt from './contact.style'
-import { formatNumber } from '../../utils/tools'
 
 type ContactProp = {
   children: ContactModel
 }
 
-type ChangeType = ChangeEvent<HTMLInputElement>
 type ButtonEvtType = React.Dispatch<React.SetStateAction<boolean>>
 
 const ButtonArea = (edit: boolean, set: ButtonEvtType) =>

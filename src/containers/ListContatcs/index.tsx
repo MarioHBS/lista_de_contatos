@@ -5,6 +5,7 @@ import { ContactComponent, FavComponent } from '../../components/Contact'
 import { RootReducer } from '../../redux/store'
 import { MainContainer } from '../../styles/global'
 import Inner from './list.style'
+import { plainContact } from '../../utils/tools'
 
 const ListContacts = () => {
   const [favMode] = useState(false)
@@ -20,7 +21,7 @@ const ListContacts = () => {
     if (query != undefined) {
       filtered = filtered.filter(
         (item) =>
-          item.name.toLowerCase().search(query.toLocaleLowerCase()) >= 0,
+          plainContact(item.name).search(plainContact(query)) >= 0,
       )
 
       if(type === 'category') {
