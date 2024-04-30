@@ -1,4 +1,5 @@
-export const cleanNumber = (boilerplate: string) => boilerplate.replace(/\D/g, '') // Remove todos os caracteres não numéricos
+export const cleanNumber = (boilerplate: string) =>
+  boilerplate.replace(/\D/g, '') // Remove todos os caracteres não numéricos
 
 export const formatNumber = (phoneNumber: string) => {
   const numb = cleanNumber(phoneNumber)
@@ -25,3 +26,9 @@ export const formatNumber = (phoneNumber: string) => {
 
   return formatted
 }
+
+export const plainContact = (srt: string): string =>
+  srt
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLocaleLowerCase()
