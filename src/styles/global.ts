@@ -26,12 +26,29 @@ export const MainContainer = styled.main`
   overflow-y: scroll;
 `
 
+export const TitleResult = styled.h2`
+  display: block;
+  margin: 40px 0;
+  font-size: 18px;
+  font-weight: bold;
+`
+
 export const Entry = styled.input`
   font-size: 18px;
   border: none;
   outline: none;
   border-bottom: 1px solid #bbb;
   text-transform: capitalize;
+`
+
+export const Querier = styled.input`
+  width: 100%;
+  padding: 8px;
+  background-color: #fff;
+  border-radius: 8px;
+  font-weight: bold;
+  color: #666666;
+  border-color: #666666;
 `
 
 export const Button = styled.button`
