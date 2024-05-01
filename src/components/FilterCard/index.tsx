@@ -15,7 +15,7 @@ type FilterProps = {
 
 const FilterCard = ({ criterion, fav, type, value }: FilterProps) => {
   const dsp = useDispatch()
-  const { filters } = useSelector((root: RootReducer) => root)
+  const filters = useSelector((root: RootReducer) => root.filters)
 
   const countItems =
     useSelector( (root: RootReducer) => counterSelector(type, value, root))
