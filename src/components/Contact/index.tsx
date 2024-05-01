@@ -73,7 +73,7 @@ export const ContactComponent = ({ children: aluno }: ContactProp) => {
   const editTel = (number : string) => setTel(number)
 
   return (
-    <Ctt.Card edit_status='false'>
+    <Ctt.Card edit_status={isEditing.toString()}>
       <div>
         {!isEditing ? <h3>{name}</h3> : <Entry type='text' value={name} onChange={editName} />}
 
@@ -82,7 +82,7 @@ export const ContactComponent = ({ children: aluno }: ContactProp) => {
           : <Ctt.Entry2 type='email' value={email} onChange={editEmail}/>
         }
         {!isEditing
-          ? <h4>{formatNumber(tel)}</h4>
+          ? <h4 className='tel-field'>{formatNumber(tel)}</h4>
           : <PhoneInput value={tel} onChange={editTel} />
         }
       </div>

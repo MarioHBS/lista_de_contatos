@@ -26,6 +26,7 @@ const PhoneInput = ({ border, value, onChange }: PhoneType) => {
       {!border ? (
         <InputPhone
           type="tel"
+          className='tel-field'
           value={phone}
           onChange={handleChange}
           placeholder="(xx) xxxx-xxxx"

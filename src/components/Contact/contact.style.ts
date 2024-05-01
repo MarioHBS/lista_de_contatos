@@ -44,13 +44,28 @@ export const Card = styled(CardFav)`
   }
 
   h4 {
-    width: 200px;
+    width: 210px;
+  }
+  .tel-field {
+    width: 150px;
   }
 
   div:nth-child(1) {
+    // área de informações
     width: 100%;
     display: flex;
     justify-content: space-around;
+  }
+
+  @media (max-width: 1120px) {
+    display: block;
+    padding: 16px 16px 8px;
+    // background-color: #333;
+
+    div:nth-child(1) {
+      margin-left: 8px;
+      justify-content: space-between;
+    }
   }
 `
 
@@ -76,6 +91,18 @@ export const ActionAreaHz = styled.div`
   // padding: 5px;
   justify-content: space-around;
   border-left: 1px solid rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 1120px) {
+    margin: 8px 5px 8px;
+    padding-top: 5px;
+    justify-content: left;
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+
+    button:nth-child(1) {
+      margin-right: 8px;
+    }
+  }
 `
 
 export const ButtonCancel = styled(Button)`
