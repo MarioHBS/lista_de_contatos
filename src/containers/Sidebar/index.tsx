@@ -1,9 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux'
 
-import FilterCard from '../../components/FilterCard'
 import { setQuery } from '../../redux/filters/reducer'
 import { RootReducer } from '../../redux/store'
+
+import FilterCard from '../../components/FilterCard'
+import { Querier } from '../../styles/global'
 import { CategoryType, ChangeType } from '../../utils/types'
+
 import * as SB from './sidebar.style'
 
 const SideBar = () => {
@@ -17,7 +20,7 @@ const SideBar = () => {
 
   return (
     <SB.Aside>
-      <SB.Querier type='text' placeholder='Buscar' value={query} onChange={change} />
+      <Querier type='text' placeholder='Buscar' value={query} onChange={change} />
       {/* Área dos filtros */}
       <SB.FilterContainer>
         <FilterCard type='category' criterion='família' value={CategoryType.FAMILY} />
