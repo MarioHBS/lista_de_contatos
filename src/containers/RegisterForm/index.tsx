@@ -1,12 +1,19 @@
 import { FormEvent, useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 import PhoneInput from '../../components/Phone'
 import { ButtonSave, MainContainer, TitleResult } from '../../styles/global'
 import { CategoryType, ChangeType } from '../../utils/types'
 
 import * as Reg from './form.style'
+import { add } from '../../redux/contacts'
 
 const RegisterForm = () => {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  const [fav, setFav] = useState(false)
   const [tel, setTel] = useState('')
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -21,7 +28,15 @@ const RegisterForm = () => {
 
   const handleSubmit = (evt: FormEvent) => {
     evt.preventDefault()
-    console.log(name, email, tel, type)
+    console.log(name, email, tel, type, fav)
+    dispatch(add({
+      name,
+      email,
+      phone: tel,
+      category: type,
+      fav,
+    }))
+    navigate('/')
   }
 
   return (
@@ -44,6 +59,19 @@ const RegisterForm = () => {
           placeholder="E-mail"
         />
         <PhoneInput border value={tel} onChange={changePhone} />
+
+        <Reg.Options>
+          <Reg.Option>
+            <label htmlFor="fav">favorito:</label>
+            <input
+              checked={fav}
+              onChange={(evt) => setFav(evt.target.checked)}
+              type="checkbox"
+              name="fav"
+              id="fav"
+            />
+          </Reg.Option>
+        </Reg.Options>
 
         <Reg.Options>
           <p> Tipo:</p>

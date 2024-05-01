@@ -4,7 +4,7 @@ import { Querier } from '../../styles/global'
 export const Form = styled.form`
   max-width: 520px;
   width: 100%;
-  margin: 32px 16px;
+  margin: 32px 0;
   font-weight: bold;
   font-size: 18px;
 `
