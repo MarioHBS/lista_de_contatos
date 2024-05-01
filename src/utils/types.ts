@@ -1,9 +1,9 @@
 import { ChangeEvent } from 'react'
 
 export enum CategoryType {
+  COMMON = 'comum',
   FAMILY = 'família',
   WORK = 'trabalho',
-  COMMON = 'comum',
 }
 
 export type TypeQuery = 'category' | 'fav' | 'all'
