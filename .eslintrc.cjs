@@ -1,5 +1,3 @@
-const { version } = require('react')
-
 module.exports = {
   root: true,
   env: { browser: true, es2020: true },
@@ -18,7 +16,7 @@ module.exports = {
     project: ['./tsconfig.json', './tsconfig.node.json'],
     tsconfigRootDir: __dirname,
   },
-  plugins: ['react-refresh', '@typescript-eslint'],
+  plugins: ['react-refresh', '@typescript-eslint', 'react-hooks'],
   rules: {
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
@@ -35,5 +33,9 @@ module.exports = {
     react: {
       version: 'detect',
     },
+    'eslint.validate': [
+      'typescript',
+      'typescriptreact',
+    ],
   },
 }
