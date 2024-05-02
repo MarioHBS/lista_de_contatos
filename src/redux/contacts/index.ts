@@ -83,9 +83,16 @@ const ContactSlice = createSlice({
         state.list = state.list.sort((a, b) => a.name.localeCompare(b.name))
       }
     },
-    // setFavorite: (state, action) => {}
+    setFavorite: (state, action: PayloadAction<number>) => {
+      const index = state.list.findIndex((c) => c.id === action.payload)
+
+      if (index > -1) {
+        const edited = { ...state.list[index], fav: !state.list[index].fav }
+        state.list[index] = edited
+      }
+    },
   },
 })
 
-export const { add, edit, remove } = ContactSlice.actions
+export const { add, edit, remove, setFavorite } = ContactSlice.actions
 export default ContactSlice.reducer

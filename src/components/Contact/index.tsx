@@ -2,13 +2,14 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 
 import ContactModel from '../../models/Contact'
-import { remove } from '../../redux/contacts'
+import { remove, setFavorite } from '../../redux/contacts'
 import { formatNumber } from '../../utils/tools'
 import { ChangeType } from '../../utils/types'
 import PhoneInput from '../Phone'
 // styles
 import { Button, ButtonSave, Entry } from '../../styles/global'
 import * as Ctt from './contact.style'
+import StarIcon from '../StarIcon'
 
 type ContactProp = {
   children: ContactModel
@@ -108,6 +109,10 @@ export const ContactComponent = ({ children: aluno }: ContactProp) => {
   const editName = ({ target }: ChangeType) => setPrevName(target.value)
   const editTel = (number : string) => setPrevTel(number)
 
+  function changeFavState() {
+    dsp(setFavorite(aluno.id))
+  }
+
   const confirm = () => {
     setName(prevName)
     setEmail(prevEmail)
@@ -125,7 +130,15 @@ export const ContactComponent = ({ children: aluno }: ContactProp) => {
   return (
     <Ctt.Card edit_status={isEditing.toString()}>
       <div>
-        {!isEditing ? <h3>{name}</h3> : <Entry type='text' value={prevName} onChange={editName} />}
+        <label htmlFor={aluno.id.toString()}>
+          <StarIcon filled={aluno.fav} onClick={changeFavState} />
+          {!isEditing
+            ? <h3>{name}</h3>
+            : (
+              <Entry type="text" value={prevName} onChange={editName} />
+            )
+          }
+        </label>
 
         {!isEditing
           ? <h4>{email}</h4>

@@ -38,8 +38,9 @@ export const Card = styled(CardFav)`
   align-items: center;
   grid-template-columns: auto 20%;
 
-  h3 {
-    // margin-right: 16px;
+  label {
+    display: flex;
+    align-items: center;
     width: 230px;
   }
 
@@ -63,7 +64,6 @@ export const Card = styled(CardFav)`
     // background-color: #333;
 
     div:nth-child(1) {
-      margin-left: 8px;
       justify-content: space-between;
     }
   }
