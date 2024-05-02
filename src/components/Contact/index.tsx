@@ -1,6 +1,8 @@
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
 
 import ContactModel from '../../models/Contact'
+import { remove } from '../../redux/contacts'
 import { formatNumber } from '../../utils/tools'
 import { ChangeType } from '../../utils/types'
 import PhoneInput from '../Phone'
@@ -19,6 +21,7 @@ const ButtonArea = (
   set: ButtonEvtType,
   confirm: () => void,
   reset: () => void,
+  remove: () => void,
 ) => {
   return edit ? (
     <>
@@ -32,12 +35,13 @@ const ButtonArea = (
       <Button type="button" onClick={() => set(!edit)}>
         Editar
       </Button>
-      <Ctt.ButtonCancel>Remover</Ctt.ButtonCancel>
+      <Ctt.ButtonCancel onClick={remove}>Remover</Ctt.ButtonCancel>
     </>
   )
 }
 
 export const FavComponent = ({ children: aluno }: ContactProp) => {
+  const dsp = useDispatch()
   const [isEditing, setEdition] = useState(false)
 
   const [prevName, setPrevName] = useState(aluno.name)
@@ -58,13 +62,13 @@ export const FavComponent = ({ children: aluno }: ContactProp) => {
     setTel(prevTel)
     setEdition(false)
   }
-
   const reset = () => {
     setPrevName(name)
     setPrevEmail(email)
     setPrevTel(tel)
     setEdition(false)
   }
+  const removeElm = () => dsp(remove(aluno.id))
 
   return (
     <Ctt.CardFav edit_status={isEditing.toString()}>
@@ -82,13 +86,14 @@ export const FavComponent = ({ children: aluno }: ContactProp) => {
       </div>
 
       <Ctt.ActionArea>
-        {ButtonArea(isEditing, setEdition, confirm, reset)}
+        {ButtonArea(isEditing, setEdition, confirm, reset, removeElm)}
       </Ctt.ActionArea>
     </Ctt.CardFav>
   )
 }
 
 export const ContactComponent = ({ children: aluno }: ContactProp) => {
+  const dsp = useDispatch()
   const [isEditing, setEdition] = useState(false)
 
   const [prevName, setPrevName] = useState(aluno.name)
@@ -109,13 +114,13 @@ export const ContactComponent = ({ children: aluno }: ContactProp) => {
     setTel(prevTel)
     setEdition(false)
   }
-
   const reset = () => {
     setPrevName(name)
     setPrevEmail(email)
     setPrevTel(tel)
     setEdition(false)
   }
+  const removeElm = () => dsp(remove(aluno.id))
 
   return (
     <Ctt.Card edit_status={isEditing.toString()}>
@@ -132,7 +137,7 @@ export const ContactComponent = ({ children: aluno }: ContactProp) => {
         }
       </div>
       <Ctt.ActionAreaHz>
-        {ButtonArea(isEditing, setEdition, confirm, reset)}
+        {ButtonArea(isEditing, setEdition, confirm, reset, removeElm)}
       </Ctt.ActionAreaHz>
     </Ctt.Card>
   )
