@@ -9,6 +9,10 @@ export default createGlobalStyle`
     font-weight: normal; // tive que colocar isso ??
     list-style: none;
   }
+
+  a {
+    text-decoration: none;
+  }
 `
 
 export const OuterContainer = styled.div`

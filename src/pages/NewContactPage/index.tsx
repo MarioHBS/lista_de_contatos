@@ -4,7 +4,7 @@ import SideBar from '../../containers/Sidebar'
 const NewContactPage = () => {
   return (
     <>
-      <SideBar />
+      <SideBar showFilters={false} />
 
       <RegisterForm />
     </>

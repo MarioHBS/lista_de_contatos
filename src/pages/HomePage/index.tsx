@@ -4,7 +4,7 @@ import SideBar from '../../containers/Sidebar'
 const HomePage = () => {
   return (
     <>
-      <SideBar />
+      <SideBar showFilters />
       <ListContacts />
     </>
   )
